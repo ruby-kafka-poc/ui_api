@@ -1,17 +1,15 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add `node(id: ID!) and `nodes(ids: [ID!]!)`
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :user, UserType, "Find an user by ID" do
+      argument :id, ID
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    def user(id:)
+      user = Struct.new(:id, :email, :access_at, :locked, :failed_attempts)
+      user.new(id, 'asd@qwer.ty', DateTime.now, false, 0)
     end
   end
 end
