@@ -8,6 +8,7 @@ ruby '3.1.2'
 gem 'aasm'
 gem 'bcrypt'
 gem 'dotenv-rails'
+gem 'graphql'
 gem 'jwt'
 gem 'kafka_rails_integration',
     git: 'https://github.com/ruby-kafka-poc/rails_kafka_integration.git', ref: 'fde10e9'
